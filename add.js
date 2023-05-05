@@ -13,8 +13,16 @@ function add(numbers) {
   let arr = numbers.split('\n').join(delimiter).split(delimiter);
   let sum = 0;
   let negatives = [];
+  // Removing characters
+  const filteredArr = arr.filter((elem) => !isNaN(elem) && elem !== '');
 
-  arr.forEach((value) => {
+  //console.log(filteredArr);
+
+  if (!filteredArr.length) {
+    throw new Error('Invalid Input');
+  }
+
+  filteredArr.forEach((value) => {
     let num = parseInt(value);
 
     if (num < 0) {
@@ -32,3 +40,6 @@ function add(numbers) {
 console.log(add(''));
 console.log(add('1,2'));
 console.log(add('1'));
+console.log(add('-1,2,-3'));
+console.log(add('1,#,3,\n4'));
+add('dghh');
