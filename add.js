@@ -20,7 +20,7 @@ function add(numbers) {
   //console.log(filteredArr);
 
   if (!filteredArr.length) {
-    return 'Invalid Input';
+    throw new Error('Invalid input');
   }
 
   filteredArr.forEach((value) => {
@@ -34,8 +34,7 @@ function add(numbers) {
   });
 
   if (negatives.length) {
-    console.log('Negatives: ' + negatives.join(','));
-    throw new Error('Negatives not allowed');
+    throw new Error('Negatives not allowed: ' + negatives.join(','));
   }
   return sum;
 }

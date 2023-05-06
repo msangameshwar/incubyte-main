@@ -16,8 +16,14 @@ it('Allow the Add method to handle new lines between numbers (instead of commas)
   expect(add('1\n2,3')).toBe(6);
 });
 
-it('Delimiter can be changed', () => {
-  expect(add('//;\n1;2')).toBe(3);
+it('Ignore character', () => {
+  expect(add('1,#,4')).toBe(5);
+});
+
+it('Nagative not allowed', () => {
+  expect(() => {
+    add('-1,2');
+  }).toThrow('Negatives not allowed: -1');
 });
 
 it('Ignore greater than 1000', () => {
@@ -25,13 +31,11 @@ it('Ignore greater than 1000', () => {
 });
 
 it('Invalid input', () => {
-  expect(add('welcome')).toBe('Invalid Input');
+  expect(() => {
+    add('welcome');
+  }).toThrow('Invalid input');
 });
 
-it('Ignore character', () => {
-  expect(add('1,#,4')).toBe(5);
-});
-
-it('Negative inputs throw error', () => {
-  expect(add('-1,2')).toThrow();
+it('Delimiter can be changed', () => {
+  expect(add('//;\n1;2')).toBe(3);
 });
