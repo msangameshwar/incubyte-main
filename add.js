@@ -13,6 +13,7 @@ function add(numbers) {
   let arr = numbers.split('\n').join(delimiter).split(delimiter);
   let sum = 0;
   let negatives = [];
+
   // Removing characters
   const filteredArr = arr.filter((elements) => !isNaN(elements) && elements !== '');
 
@@ -38,10 +39,12 @@ function add(numbers) {
   return sum;
 }
 
-console.log(add(''));
-console.log(add('1,2'));
-console.log(add('1'));
-console.log(add('-1,2,-3'));
-console.log(add('1,#,3,\n4'));
-add('dghh');
-add('1,1120');
+// console.log(add(''));
+// console.log(add('1,2'));
+// console.log(add('1'));
+// console.log(add('-1,2,-3'));
+// console.log(add('1,#,3,\n4'));
+// add('dghh');
+// add('1,1120');
+
+module.exports = add;
