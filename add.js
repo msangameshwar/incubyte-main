@@ -14,7 +14,7 @@ function add(numbers) {
   let sum = 0;
   let negatives = [];
   // Removing characters
-  const filteredArr = arr.filter((elem) => !isNaN(elem) && elem !== '');
+  const filteredArr = arr.filter((elements) => !isNaN(elements) && elements !== '');
 
   //console.log(filteredArr);
 
@@ -27,8 +27,9 @@ function add(numbers) {
 
     if (num < 0) {
       negatives.push(num);
+    } else if (num <= 1000) {
+      sum += num;
     }
-    sum += num;
   });
 
   if (negatives.length) {
@@ -43,3 +44,4 @@ console.log(add('1'));
 console.log(add('-1,2,-3'));
 console.log(add('1,#,3,\n4'));
 add('dghh');
+add('1,1120');
