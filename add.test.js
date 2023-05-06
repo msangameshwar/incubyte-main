@@ -23,3 +23,15 @@ it('Delimiter can be changed', () => {
 it('Ignore greater than 1000', () => {
   expect(add('1,1120')).toBe(1);
 });
+
+it('Invalid input', () => {
+  expect(add('welcome')).toBe('Invalid Input');
+});
+
+it('Ignore character', () => {
+  expect(add('1,#,4')).toBe(5);
+});
+
+it('Negative inputs throw error', () => {
+  expect(add('-1,2')).toThrow();
+});
